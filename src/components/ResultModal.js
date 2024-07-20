@@ -12,7 +12,7 @@ const ResultModal = ({ show, onClose, result, countryData, isCorrect }) => {
     if (voices.length > 0) {
       const preferredVoice = voices.find(voice => voice.name === 'Microsoft Natasha Online (Natural) - English (Australia)');
       const fallbackVoice = voices.find(voice => voice.lang.startsWith('en'));
-      setSelectedVoice(preferredVoice || fallbackVoice || 'default');
+      setSelectedVoice(preferredVoice || fallbackVoice || 'Default');
     }
   }, [voices]);
 
@@ -26,7 +26,7 @@ const ResultModal = ({ show, onClose, result, countryData, isCorrect }) => {
 
     speak({
       text,
-      voice: selectedVoice === 'default' ? null : selectedVoice
+      voice: selectedVoice === 'Default' ? null : selectedVoice
     });
   };
 

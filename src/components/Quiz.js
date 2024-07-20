@@ -27,7 +27,7 @@ const Quiz = ({ difficulty, onBackToDifficultySelection }) => {
     if (voices.length > 0) {
       const preferredVoice = voices.find(voice => voice.name === 'Microsoft Natasha Online (Natural) - English (Australia)');
       const fallbackVoice = voices.find(voice => voice.lang.startsWith('en'));
-      setSelectedVoice(preferredVoice || fallbackVoice || 'default');
+      setSelectedVoice(preferredVoice || fallbackVoice || 'Default');
     }
   }, [voices]);
 
@@ -113,7 +113,7 @@ const Quiz = ({ difficulty, onBackToDifficultySelection }) => {
 
     speak({
       text,
-      voice: selectedVoice === 'default' ? null : selectedVoice
+      voice: selectedVoice === 'Default' ? null : selectedVoice
     });
   };
 
@@ -134,7 +134,7 @@ const Quiz = ({ difficulty, onBackToDifficultySelection }) => {
 
     speak({
       text,
-      voice: selectedVoice === 'default' ? null : selectedVoice
+      voice: selectedVoice === 'Default' ? null : selectedVoice
     });
   };
 
