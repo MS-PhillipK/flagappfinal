@@ -1,18 +1,23 @@
 /* Flag.css */
 .flag-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0; /* Adjust as needed */
-  }
-  
-  .flag-image {
-    width: 200px; /* Adjust size as needed */
-    height: auto;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .flag-image:hover {
-    transform: scale(1.2);
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0; /* Adjust as needed */
+  background-color: #292929; /* Slightly lighter dark background */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.flag-image {
+  width: 200px; /* Adjust size as needed */
+  height: auto;
+  transition: transform 0.2s ease-in-out;
+  border: 5px solid #61C0BF; /* Light teal border */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add drop shadow */
+}
+
+.flag-image:hover {
+  transform: scale(1.2);
+}

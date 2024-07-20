@@ -12,13 +12,14 @@
 }
 
 .modal {
-  background: white;
+  background: #292929; /* Slightly lighter dark background */
   padding: 20px;
   border-radius: 10px;
   width: 80%;
   max-width: 500px;
   text-align: center;
   position: relative;
+  color: #FFFFFF; /* White text color */
 }
 
 .flag-image {
@@ -26,6 +27,8 @@
   height: auto;
   margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add drop shadow here */
+  border: 5px solid #61C0BF; /* Light teal border */
+  border-radius: 10px;
 }
 
 .country-info {
@@ -36,6 +39,7 @@
   display: flex;
   align-items: center;
   margin: 10px 0;
+  color: #A8E6CF; /* Light green text */
 }
 
 .speaker-icon {
@@ -46,17 +50,19 @@
 }
 
 .continue-button {
-  background-color: #4CAF50;
+  background-color: #47A025; /* Duolingo green */
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px; /* Fully rounded button */
   cursor: pointer;
   margin-top: 20px;
+  font-weight: bold; /* Bold text */
+  transition: background-color 0.3s;
 }
 
 .continue-button:hover {
-  background-color: #45a049;
+  background-color: #3D8B22; /* Dark green */
 }
 
 .continue-button:disabled {

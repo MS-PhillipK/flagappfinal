@@ -1,33 +1,41 @@
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
-  }
-  
-  .continue-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .continue-button:hover {
-    background: #45a049;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: #292929; /* Slightly lighter dark background */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: #FFFFFF; /* White text color */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.continue-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #47A025; /* Duolingo green */
+  color: white;
+  border: none;
+  border-radius: 50px; /* Fully rounded button */
+  cursor: pointer;
+  font-weight: bold; /* Bold text */
+  transition: background-color 0.3s;
+}
+
+.continue-button:hover {
+  background: #3D8B22; /* Dark green */
+}
+
+.continue-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}

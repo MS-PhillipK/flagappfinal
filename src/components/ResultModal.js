@@ -40,43 +40,43 @@ const ResultModal = ({ show, onClose, result, countryData, isCorrect }) => {
         <img src={result.flagSrc} alt={countryData.country} className="flag-image" />
         <div className="country-info">
           <p>
-            <strong>Country:</strong> {countryData.country}
+            <strong>Country: </strong>{countryData.country}
             <img
               src={speakerIcon}
               alt="Speak"
-              onClick={() => speakText(countryData.country)}
+              onClick={() => speakText(`This is ${countryData.country}`)}
               className="speaker-icon"
             />
           </p>
           <p>
-            <strong>Capital City:</strong> {countryData.capitalCity}
+            <strong>Capital City: </strong>{countryData.capitalCity}
             <img
               src={speakerIcon}
               alt="Speak"
-              onClick={() => speakText(countryData.capitalCity)}
+              onClick={() => speakText(`Its Capital City is ${countryData.capitalCity}`)}
               className="speaker-icon"
             />
           </p>
           <p>
-            <strong>Continent:</strong> {countryData.continent}
+            <strong>Continent: </strong>{countryData.continent}
             <img
               src={speakerIcon}
               alt="Speak"
-              onClick={() => speakText(countryData.continent)}
+              onClick={() => speakText(`${countryData.country} is on the continent of ${countryData.continent}`)}
               className="speaker-icon"
             />
           </p>
           <p>
-            <strong>Native Language:</strong> {countryData.language}
+            <strong>Native Language: </strong>{countryData.language}
             <img
               src={speakerIcon}
               alt="Speak"
-              onClick={() => speakText(countryData.language)}
+              onClick={() => speakText(`Their Native Language is ${countryData.language}`)}
               className="speaker-icon"
             />
           </p>
           <p>
-            <strong>How to say Hello:</strong> {countryData.hello}
+            <strong>How to say Hello: </strong>{countryData.hello}
             <img
               src={speakerIcon}
               alt="Speak"
