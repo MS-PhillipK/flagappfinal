@@ -25,9 +25,9 @@ const Quiz = ({ difficulty, onBackToDifficultySelection }) => {
 
   useEffect(() => {
     if (voices.length > 0) {
-      // Select 'Microsoft Natasha Online (Natural) - English (Australia)' if available, else select the first available voice
-      const voice = voices.find(voice => voice.name === 'Microsoft Natasha Online (Natural) - English (Australia)') || voices[0];
-      setSelectedVoice(voice);
+      const preferredVoice = voices.find(voice => voice.name === 'Microsoft Natasha Online (Natural) - English (Australia)');
+      const fallbackVoice = voices.find(voice => voice.lang.startsWith('en'));
+      setSelectedVoice(preferredVoice || fallbackVoice || 'default');
     }
   }, [voices]);
 
@@ -113,7 +113,7 @@ const Quiz = ({ difficulty, onBackToDifficultySelection }) => {
 
     speak({
       text,
-      voice: selectedVoice
+      voice: selectedVoice === 'default' ? null : selectedVoice
     });
   };
 
@@ -134,7 +134,7 @@ const Quiz = ({ difficulty, onBackToDifficultySelection }) => {
 
     speak({
       text,
-      voice: selectedVoice
+      voice: selectedVoice === 'default' ? null : selectedVoice
     });
   };
 

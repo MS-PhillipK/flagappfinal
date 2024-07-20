@@ -10,12 +10,9 @@ const ResultModal = ({ show, onClose, result, countryData, isCorrect }) => {
 
   useEffect(() => {
     if (voices.length > 0) {
-      const voice = voices.find(voice => voice.name === 'Microsoft Natasha Online (Natural) - English (Australia)');
-      if (voice) {
-        setSelectedVoice(voice);
-      } else {
-        console.warn("Voice 'Microsoft Natasha Online (Natural) - English (Australia)' not found. Available voices are:", voices.map(v => v.name).join(", "));
-      }
+      const preferredVoice = voices.find(voice => voice.name === 'Microsoft Natasha Online (Natural) - English (Australia)');
+      const fallbackVoice = voices.find(voice => voice.lang.startsWith('en'));
+      setSelectedVoice(preferredVoice || fallbackVoice || 'default');
     }
   }, [voices]);
 
@@ -29,7 +26,7 @@ const ResultModal = ({ show, onClose, result, countryData, isCorrect }) => {
 
     speak({
       text,
-      voice: selectedVoice
+      voice: selectedVoice === 'default' ? null : selectedVoice
     });
   };
 
