@@ -1,0 +1,18 @@
+/* Flag.css */
+.flag-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; /* Adjust as needed */
+  }
+  
+  .flag-image {
+    width: 200px; /* Adjust size as needed */
+    height: auto;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .flag-image:hover {
+    transform: scale(1.2);
+  }
+  
