@@ -4,7 +4,6 @@ import './ResultModal.css';
 import speakerIcon from '../assets/speaker.png'; // Adjust the path as necessary
 
 const ResultModal = ({ show, onClose, result, countryData, isCorrect }) => {
-  const [loading, setLoading] = useState(false);
   const { speak, voices } = useSpeechSynthesis();
   const [selectedVoice, setSelectedVoice] = useState(null);
 
@@ -12,7 +11,7 @@ const ResultModal = ({ show, onClose, result, countryData, isCorrect }) => {
     if (voices.length > 0) {
       const preferredVoice = voices.find(voice => voice.name === 'Microsoft Natasha Online (Natural) - English (Australia)');
       const fallbackVoice = voices.find(voice => voice.lang.startsWith('en'));
-      setSelectedVoice(preferredVoice || fallbackVoice || 'Default');
+      setSelectedVoice(preferredVoice || fallbackVoice || voices[0]);
     }
   }, [voices]);
 
@@ -26,7 +25,7 @@ const ResultModal = ({ show, onClose, result, countryData, isCorrect }) => {
 
     speak({
       text,
-      voice: selectedVoice === 'Default' ? null : selectedVoice
+      voice: selectedVoice
     });
   };
 
@@ -82,8 +81,8 @@ const ResultModal = ({ show, onClose, result, countryData, isCorrect }) => {
             />
           </p>
         </div>
-        <button className="continue-button" onClick={onClose} disabled={loading}>
-          {loading ? 'Loading...' : 'Continue'}
+        <button className="continue-button" onClick={onClose}>
+          Continue
         </button>
       </div>
     </div>

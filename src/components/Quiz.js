@@ -6,7 +6,7 @@ import GameOverModal from './GameOverModal';
 import { easyFlags, mediumFlags, hardFlags, extremelyHardFlags } from './data/flagdata.js';
 import speakerIcon from '../assets/speaker.png';
 import countriesData from './countries.json';
-import { displayedFlags, getNewFlag, resetDisplayedFlags, shuffleArray } from '../utils/shuffle';
+import { getNewFlag, resetDisplayedFlags, shuffleArray } from '../utils/shuffle';
 
 const Quiz = ({ difficulty, onBackToDifficultySelection }) => {
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -27,7 +27,7 @@ const Quiz = ({ difficulty, onBackToDifficultySelection }) => {
     if (voices.length > 0) {
       const preferredVoice = voices.find(voice => voice.name === 'Microsoft Natasha Online (Natural) - English (Australia)');
       const fallbackVoice = voices.find(voice => voice.lang.startsWith('en'));
-      setSelectedVoice(preferredVoice || fallbackVoice || 'Default');
+      setSelectedVoice(preferredVoice || fallbackVoice || voices[0]);
     }
   }, [voices]);
 
@@ -113,7 +113,7 @@ const Quiz = ({ difficulty, onBackToDifficultySelection }) => {
 
     speak({
       text,
-      voice: selectedVoice === 'Default' ? null : selectedVoice
+      voice: selectedVoice
     });
   };
 
@@ -134,7 +134,7 @@ const Quiz = ({ difficulty, onBackToDifficultySelection }) => {
 
     speak({
       text,
-      voice: selectedVoice === 'Default' ? null : selectedVoice
+      voice: selectedVoice
     });
   };
 
