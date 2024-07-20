@@ -25,12 +25,9 @@ const Quiz = ({ difficulty, onBackToDifficultySelection }) => {
 
   useEffect(() => {
     if (voices.length > 0) {
-      const voice = voices.find(voice => voice.name === 'Microsoft Natasha Online (Natural) - English (Australia)');
-      if (voice) {
-        setSelectedVoice(voice);
-      } else {
-        console.warn("Voice 'Microsoft Natasha Online (Natural) - English (Australia)' not found. Available voices are:", voices.map(v => v.name).join(", "));
-      }
+      // Select 'Microsoft Natasha Online (Natural) - English (Australia)' if available, else select the first available voice
+      const voice = voices.find(voice => voice.name === 'Microsoft Natasha Online (Natural) - English (Australia)') || voices[0];
+      setSelectedVoice(voice);
     }
   }, [voices]);
 
@@ -134,7 +131,7 @@ const Quiz = ({ difficulty, onBackToDifficultySelection }) => {
     let countriesText = shuffledAnswers.map(answer => countriesData[answer]?.country || answer);
     countriesText = `${countriesText.slice(0, -1).join(", ")} and ${countriesText.slice(-1)}`;
     const text = `The four countries are: ${countriesText}`;
-    
+
     speak({
       text,
       voice: selectedVoice
