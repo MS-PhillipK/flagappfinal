@@ -125,6 +125,22 @@ const Quiz = ({ difficulty, onBackToDifficultySelection }) => {
     audio.play();
   };
 
+  const handleReadAll = () => {
+    if (!selectedVoice) {
+      console.error('Selected voice is not available.');
+      return;
+    }
+
+    let countriesText = shuffledAnswers.map(answer => countriesData[answer]?.country || answer);
+    countriesText = `${countriesText.slice(0, -1).join(", ")} and ${countriesText.slice(-1)}`;
+    const text = `The four countries are: ${countriesText}`;
+    
+    speak({
+      text,
+      voice: selectedVoice
+    });
+  };
+
   if (!currentQuestion) return <div>Loading...</div>;
 
   return (
@@ -148,6 +164,10 @@ const Quiz = ({ difficulty, onBackToDifficultySelection }) => {
       </div>
       <div className="score-lives">
         <span>Score: {score}</span>
+        <button className="read-all-button" onClick={handleReadAll}>
+          Read All
+          <img src={speakerIcon} alt="Speak" className="speaker-icon" />
+        </button>
         <span>Lives: {lives}</span>
       </div>
       <ResultModal
